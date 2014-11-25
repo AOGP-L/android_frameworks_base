@@ -178,6 +178,8 @@ public class AppTransition implements Dump {
     private int mAnimationDuration;
     private boolean mIsResId = false;
     private boolean mNoOverrides;
+    private boolean mExitOnly;
+    private boolean mReverseExit;	
 
     private int mCurrentUserId = 0;
 
@@ -893,134 +895,134 @@ public class AppTransition implements Dump {
             int animAttr = 0;
             switch (transit) {
                 case TRANSIT_ACTIVITY_OPEN:
-                     if (mActivityAnimations[0] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[0]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_activityOpenEnterAnimation
-                                  : WindowAnimation_activityOpenExitAnimation;
-                     }
+                    if (mActivityAnimations[0] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[0], mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_activityOpenEnterAnimation
+                                : WindowAnimation_activityOpenExitAnimation;
+                    }
                     break;
                 case TRANSIT_ACTIVITY_CLOSE:
-                     if (mActivityAnimations[1] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[1]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_activityCloseEnterAnimation
-                                  : WindowAnimation_activityCloseExitAnimation;
-                     }
+                    if (mActivityAnimations[1] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[1]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_activityCloseEnterAnimation
+                                : WindowAnimation_activityCloseExitAnimation;
+                    }
                     break;
                 case TRANSIT_TASK_OPEN:
-                     if (mActivityAnimations[2] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[2]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_activityOpenEnterAnimation
-                                  : WindowAnimation_activityOpenExitAnimation;
-                     }
+                    if (mActivityAnimations[2] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[2]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_taskOpenEnterAnimation
+                                : WindowAnimation_taskOpenExitAnimation;
+                    }
                     break;
                 case TRANSIT_TASK_CLOSE:
-                     if (mActivityAnimations[3] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[3]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_activityCloseEnterAnimation
-                                  : WindowAnimation_activityCloseExitAnimation;
-                     }
+                    if (mActivityAnimations[3] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[3]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_taskCloseEnterAnimation
+                                : WindowAnimation_taskCloseExitAnimation;
+                    }
                     break;
                 case TRANSIT_TASK_TO_FRONT:
-                     if (mActivityAnimations[4] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[4]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_activityToFrontEnterAnimation
-                                  : WindowAnimation_activityToFrontExitAnimation;
-                     }
+                    if (mActivityAnimations[4] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[4]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_taskToFrontEnterAnimation
+                                : WindowAnimation_taskToFrontExitAnimation;
+                    }
                     break;
                 case TRANSIT_TASK_TO_BACK:
-                     if (mActivityAnimations[5] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[5]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_activityToBackEnterAnimation
-                                  : WindowAnimation_activityToBackExitAnimation;
-                     }
+                    if (mActivityAnimations[5] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[5]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_taskToBackEnterAnimation
+                                : WindowAnimation_taskToBackExitAnimation;
+                    }
                     break;
                 case TRANSIT_WALLPAPER_OPEN:
-                     if (mActivityAnimations[6] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[6]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_wallpaperOpenEnterAnimation
-                                  : WindowAnimation_wallpaperOpenExitAnimation;
-                     }
+                    if (mActivityAnimations[6] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[6]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_wallpaperOpenEnterAnimation
+                                : WindowAnimation_wallpaperOpenExitAnimation;
+                    }
                     break;
                 case TRANSIT_WALLPAPER_CLOSE:
-                     if (mActivityAnimations[7] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[7]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_wallpaperCloseEnterAnimation
-                                  : WindowAnimation_wallpaperCloseExitAnimation;
-                     }
+                    if (mActivityAnimations[7] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[7]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_wallpaperCloseEnterAnimation
+                                : WindowAnimation_wallpaperCloseExitAnimation;
+                    }
                     break;
                 case TRANSIT_WALLPAPER_INTRA_OPEN:
-                     if (mActivityAnimations[8] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[8]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_wallpaperIntraOpenEnterAnimation
-                                  : WindowAnimation_wallpaperIntraOpenExitAnimation;
-                     }
+                    if (mActivityAnimations[8] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[8]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_wallpaperIntraOpenEnterAnimation
+                                : WindowAnimation_wallpaperIntraOpenExitAnimation;
+                    }
                     break;
                 case TRANSIT_WALLPAPER_INTRA_CLOSE:
-                     if (mActivityAnimations[9] != 0) {
-                         mIsResId = true;
-                         int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[9]);
-                         animAttr = enter
-                                 ? animArray[1]
-                                 : animArray[0];
-                     } else {
-                          animAttr = enter
-                                  ? WindowAnimation_wallpaperIntraCloseEnterAnimation
-                                  : WindowAnimation_wallpaperIntraCloseExitAnimation;
-                     }
+                    if (mActivityAnimations[9] != 0) {
+                        mIsResId = true;
+                        int[] animArray = AwesomeAnimationHelper.getAnimations(mActivityAnimations[9]), mExitOnly, mReverseExit);
+                        animAttr = enter
+                                ? animArray[1]
+                                : animArray[0];
+                    } else {
+                        animAttr = enter
+                                ? WindowAnimation_wallpaperIntraCloseEnterAnimation
+                                : WindowAnimation_wallpaperIntraCloseExitAnimation;
+                    }
                     break;
                 case TRANSIT_TASK_OPEN_BEHIND:
                     animAttr = enter
@@ -1276,7 +1278,11 @@ public class AppTransition implements Dump {
                     Settings.System.getUriFor(Settings.System.ANIMATION_CONTROLS_DURATION), false, this);
             resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE), false, this);
-            for (int i = 0; i < 10; i++) {
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.ANIMATION_CONTROLS_EXIT_ONLY), false, this);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.ANIMATION_CONTROLS_REVERSE_EXIT), false, this);
+			for (int i = 0; i < 10; i++) {
 	            resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.ACTIVITY_ANIMATION_CONTROLS[i]), false, this);
             }
@@ -1294,7 +1300,9 @@ public class AppTransition implements Dump {
         }
 
         mNoOverrides = Settings.System.getBoolean(resolver, Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE, false);
-
+        mExitOnly = Settings.System.getBoolean(resolver, Settings.System.ANIMATION_CONTROLS_EXIT_ONLY, true);
+        mReverseExit = Settings.System.getBoolean(resolver, Settings.System.ANIMATION_CONTROLS_REVERSE_EXIT, false);
+ 		
         int temp = Settings.System.getInt(resolver, Settings.System.ANIMATION_CONTROLS_DURATION, 0);
         mAnimationDuration = temp * 15;
     }	
