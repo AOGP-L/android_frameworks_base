@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/* Copyright 2014, The AOGP Project
+/* Copyright 2014, The Android Open Grand Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -100,5 +100,31 @@
   <java-symbol type="anim" name="slide_in_left_no_fade" />
   <java-symbol type="anim" name="slide_out_right_no_fade" />    
   <java-symbol type="anim" name="no_animation" />	
+
+  <!-- Shortcut actions -->
+  <java-symbol type="drawable" name="ic_shortcut_action_silent" />
+  <java-symbol type="drawable" name="ic_shortcut_action_theme_switch" />
+  <java-symbol type="drawable" name="ic_shortcut_action_torch" />
+  <java-symbol type="drawable" name="ic_shortcut_action_vib" />
+  <java-symbol type="drawable" name="ic_shortcut_action_back" />
+  <java-symbol type="drawable" name="ic_shortcut_action_back_ime" />
+  <java-symbol type="drawable" name="ic_shortcut_action_camera" />
+  <java-symbol type="drawable" name="ic_shortcut_action_expanded_desktop" />
+  <java-symbol type="drawable" name="ic_shortcut_action_home" />
+  <java-symbol type="drawable" name="ic_shortcut_action_ime_switcher" />
+  <java-symbol type="drawable" name="ic_shortcut_action_killtask" />
+  <java-symbol type="drawable" name="ic_shortcut_action_lastapp" />
+  <java-symbol type="drawable" name="ic_shortcut_action_menu_big" />
+  <java-symbol type="drawable" name="ic_shortcut_action_navbar" />
+  <java-symbol type="drawable" name="ic_shortcut_action_notifications" />
+  <java-symbol type="drawable" name="ic_shortcut_action_null" />
+  <java-symbol type="drawable" name="ic_shortcut_action_pie" />
+  <java-symbol type="drawable" name="ic_shortcut_action_power" />
+  <java-symbol type="drawable" name="ic_shortcut_action_power_menu" />
+  <java-symbol type="drawable" name="ic_shortcut_action_quicksettings" />
+  <java-symbol type="drawable" name="ic_shortcut_action_recent" />
+  <java-symbol type="drawable" name="ic_shortcut_action_ring_vib_silent" />
+  <java-symbol type="drawable" name="ic_shortcut_action_screenshot" />
+  <java-symbol type="drawable" name="ic_shortcut_action_search" />
 
 </resources>
