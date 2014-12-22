@@ -739,10 +739,12 @@ public final class PowerManagerService extends SystemService
                 Settings.System.PROXIMITY_ON_WAKE, 0) == 1;
         
         mWakeLockBlockingEnabled = Settings.System.getIntForUser(resolver,
-                Settings.System.WAKELOCK_BLOCKING_ENABLED, 0) == 1;
+                Settings.System.WAKELOCK_BLOCKING_ENABLED,
+                0, UserHandle.USER_CURRENT);
 
         String blockedWakelockList = Settings.System.getStringForUser(resolver,
-                Settings.System.WAKELOCK_BLOCKING_LIST);
+                Settings.System.WAKELOCK_BLOCKING_LIST,
+                UserHandle.USER_CURRENT);
         setBlockedWakeLocks(blockedWakelockList);
 
         Slog.d(TAG, "mWakeLockBlockingEnabled=" + mWakeLockBlockingEnabled +
