@@ -863,6 +863,17 @@ public final class PowerManager {
 
     /** @hide */
     public static final String EXTRA_POWER_SAVE_MODE = "mode";
+    
+    public String getSeenWakeLocks()
+    {
+         try {
+             if (mService != null) {
+                 return mService.getSeenWakeLocks();
+             }
+         } catch (RemoteException e) {
+         }
+         return null;
+    }
 
     /**
      * A wake lock is a mechanism to indicate that your application needs
