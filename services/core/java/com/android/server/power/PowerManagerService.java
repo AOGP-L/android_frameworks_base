@@ -3664,6 +3664,7 @@ public final class PowerManagerService extends SystemService
             String[] parts = wakeLockTagsString.split("\\|");
             for(int i = 0; i < parts.length; i++){
                 mBlockedWakeLocks.add(parts[i]);
+            }
         }
     }
 }
