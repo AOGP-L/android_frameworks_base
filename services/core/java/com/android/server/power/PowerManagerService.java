@@ -3667,5 +3667,4 @@ public final class PowerManagerService extends SystemService
                 }
             }
         }
-	}
- }
+    }
