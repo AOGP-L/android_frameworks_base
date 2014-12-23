@@ -238,41 +238,6 @@ public class CommandQueue extends IStatusBar.Stub {
         }
     }
 
-<<<<<<< HEAD
-=======
-    public void setAutoRotate(boolean enabled) {
-        synchronized (mList) {
-            mHandler.removeMessages(MSG_SET_AUTOROTATE_STATUS);
-            mHandler.obtainMessage(MSG_SET_AUTOROTATE_STATUS,
-                enabled ? 1 : 0, 0, null).sendToTarget();
-        }
-    }
-
-    public void showCustomIntentAfterKeyguard(Intent intent) {
-        synchronized (mList) {
-            mHandler.removeMessages(MSG_START_CUSTOM_INTENT_AFTER_KEYGUARD);
-            Message m = mHandler.obtainMessage(
-                    MSG_START_CUSTOM_INTENT_AFTER_KEYGUARD, 0, 0, intent);
-            m.sendToTarget();
-        }
-    }
-
-    public void hideHeadsUpCandidate(String packageName) {
-        synchronized (mList) {
-            mHandler.removeMessages(MSG_HIDE_HEADS_UP_CANDIDATE);
-            mHandler.obtainMessage(MSG_HIDE_HEADS_UP_CANDIDATE,
-                0, 0, packageName).sendToTarget();
-        }
-    }
-
-    public void scheduleHeadsUpClose() {
-        synchronized (mList) {
-            mHandler.removeMessages(MSG_HIDE_HEADS_UP);
-            mHandler.sendEmptyMessage(MSG_HIDE_HEADS_UP);
-        }
-    }
-
->>>>>>> 5fb04c8... CommandQueue: showCustomIntentAfterKeyguard ensure that it gets syncronized
     private final class H extends Handler {
         public void handleMessage(Message msg) {
             final int what = msg.what & MSG_MASK;
