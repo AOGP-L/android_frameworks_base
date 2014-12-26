@@ -1054,7 +1054,7 @@ public class AppTransition implements Dump {
     }
 
     void overridePendingAppTransition(String packageName, int enterAnim, int exitAnim,
-                                             IRemoteCallback startedCallback) {
+                                      IRemoteCallback startedCallback) {
         if (mNoOverrides) return;
         if (isTransitionSet()) {
             mNextAppTransitionType = NEXT_TRANSIT_TYPE_CUSTOM;
@@ -1070,8 +1070,8 @@ public class AppTransition implements Dump {
     }
 
     void overridePendingAppTransitionScaleUp(int startX, int startY, int startWidth,
-        
-        if (mNoOverrides) return;                                            int startHeight) {
+                                              int startHeight) {
+        if (mNoOverrides) return;                                            
         if (isTransitionSet()) {
             mNextAppTransitionType = NEXT_TRANSIT_TYPE_SCALE_UP;
             mNextAppTransitionPackage = null;
@@ -1086,8 +1086,8 @@ public class AppTransition implements Dump {
     }
 
     void overridePendingAppTransitionThumb(Bitmap srcThumb, int startX, int startY,
-        
-        if (mNoOverrides) return;                                   IRemoteCallback startedCallback, boolean scaleUp) {
+                                            IRemoteCallback startedCallback, boolean scaleUp) {
+        if (mNoOverrides) return;                                   
         if (isTransitionSet()) {
             mNextAppTransitionType = scaleUp ? NEXT_TRANSIT_TYPE_THUMBNAIL_SCALE_UP
                     : NEXT_TRANSIT_TYPE_THUMBNAIL_SCALE_DOWN;
