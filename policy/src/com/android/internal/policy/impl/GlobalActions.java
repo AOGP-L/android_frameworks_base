@@ -166,10 +166,11 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
         mShowSilentToggle = SHOW_SILENT_TOGGLE && !mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_useFixedVolume);
-        updatePowerMenuActions();
 
         mShowScreenRecord = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_enableScreenrecordChord);
+                
+        updatePowerMenuActions();        
     }
 
     /**
