@@ -1427,7 +1427,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                     outValue, true);
             return outValue.resourceId;
         }
-    }
 
         @Override
         protected void onStart() {
