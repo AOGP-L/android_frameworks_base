@@ -2729,16 +2729,44 @@ public class TelephonyManager {
      * @hide
      */
     public static void setTelephonyProperty(String property, long subId, String value) {
+        String propVal = "";
+        String p[] = null;
+        String prop = SystemProperties.get(property);
         int phoneId = SubscriptionManager.getPhoneId(subId);
 
-        if (phoneId < 0) {
-            return;
-        } else if (phoneId > 0) {
-            property += "_" + phoneId;
+        if (value == null) {
+            value = "";
         }
 
-        Rlog.d(TAG, "setTelephonyProperty property=" + property + " propVal=" + value);
-        SystemProperties.set(property, value);
+        if (prop != null) {
+            p = prop.split(",");
+        }
+
+        if (phoneId < 0) return;
+
+        for (int i = 0; i < phoneId; i++) {
+            String str = "";
+            if ((p != null) && (i < p.length)) {
+                str = p[i];
+            }
+            propVal = propVal + str + ",";
+        }
+
+        propVal = propVal + value;
+        if (p != null) {
+            for (int i = phoneId + 1; i < p.length; i++) {
+                propVal = propVal + "," + p[i];
+            }
+        }
+
+        // TODO: workaround for QC
+        if (property.length() > SystemProperties.PROP_NAME_MAX || propVal.length() > SystemProperties.PROP_VALUE_MAX) {
+            Rlog.d(TAG, "setTelephonyProperty length too long:" + property + ", " + propVal);
+            return;
+        }
+
+        Rlog.d(TAG, "setTelephonyProperty property=" + property + " propVal=" + propVal);
+        SystemProperties.set(property, propVal);
     }
 
     /**
@@ -2829,16 +2857,16 @@ public class TelephonyManager {
      * @hide
      */
     public static String getTelephonyProperty(String property, long subId, String defaultVal) {
+        String propVal = null;
         int phoneId = SubscriptionManager.getPhoneId(subId);
-
-        if (phoneId < 0) {
-            return defaultVal;
-        } else if (phoneId > 0) {
-            property += "_" + phoneId;
+        String prop = SystemProperties.get(property);
+        if ((prop != null) && (prop.length() > 0)) {
+            String values[] = prop.split(",");
+            if ((phoneId >= 0) && (phoneId < values.length) && (values[phoneId] != null)) {
+                propVal = values[phoneId];
+            }
         }
-
-        String propVal = SystemProperties.get(property);
-        return propVal.isEmpty() ? defaultVal : propVal;
+        return propVal == null ? defaultVal : propVal;
     }
 
     /**
@@ -2847,14 +2875,15 @@ public class TelephonyManager {
      * @hide
      */
     public static int getTelephonyProperty(String property, int slotId, int defaultVal) {
-        if (slotId < 0) {
-            return defaultVal;
-        } else if (slotId > 0) {
-            property += "_" + slotId;
+        String propVal = null;
+        String prop = SystemProperties.get(property);
+        if ((prop != null) && (prop.length() > 0)) {
+            String values[] = prop.split(",");
+            if ((slotId >= 0) && (slotId < values.length) && (values[slotId] != null)) {
+                propVal = values[slotId];
+            }
         }
-
-        String propVal = SystemProperties.get(property);
-        return propVal.isEmpty() ? defaultVal : Integer.parseInt(propVal);
+        return propVal == null ? defaultVal : Integer.parseInt(propVal);
     }
 
     /** @hide */
