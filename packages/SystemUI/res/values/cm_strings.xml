@@ -39,8 +39,6 @@
     <!-- Content description of the roaming tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_roaming_on">Roaming on.</string>
 
-<<<<<<< HEAD
-=======
     <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
     <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -48,10 +46,6 @@
     <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
 
-    <!-- Content description of the superuser tile -->
-    <string name="accessibility_su_active">Superuser session active</string>
-
->>>>>>> 87fb39b... QS: change location sensors mode in quick settings [1/2]
     <!-- QuickSettings: Mobile data [CHAR LIMIT=NONE] -->
     <string name="quick_settings_mobile_data_label">Mobile data</string>
     <!-- QuickSettings: Roaming [CHAR LIMIT=NONE] -->
