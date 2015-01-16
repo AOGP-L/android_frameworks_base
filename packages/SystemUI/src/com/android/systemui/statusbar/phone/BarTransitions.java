@@ -134,11 +134,6 @@ public class BarTransitions {
         private final int mTransparent;
         private int mWarning;
         private final Drawable mGradient;
-        private int mOpaque;
-        private int mSemiTransparent;
-        private int mTransparent;
-        private int mWarning;
-        private Drawable mGradient;
         private final TimeInterpolator mInterpolator;
 
         private int mMode = -1;
@@ -183,20 +178,20 @@ public class BarTransitions {
         }
 
         public void setGradientResourceId(Resources res, int gradientResourceId) {
-            mGradient = res.getDrawable(gradientResourceId);
+
             mGradientResourceId = gradientResourceId;
         }
 
         public void updateResources(Resources res)  {
-            mOpaque = res.getColor(mOpaqueColorResourceId);
-            mSemiTransparent = res.getColor(mSemiTransparentColorResourceId);
-            mTransparent = res.getColor(mTransparentColorResourceId);
+
+
+
             mWarning = res.getColor(mWarningColorResourceId);
             // Retrieve the current bounds for mGradient so they can be set to
             // the new drawable being loaded, otherwise the bounds will be (0, 0, 0, 0)
             // and the gradient will not be drawn.
             Rect bounds = mGradient.getBounds();
-            mGradient = res.getDrawable(mGradientResourceId);
+
             mGradient.setBounds(bounds);
         }
 
